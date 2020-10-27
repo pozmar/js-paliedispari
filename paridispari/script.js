@@ -10,43 +10,46 @@ generate.addEventListener("click", function(){
   evenOdd = document.getElementById("paridispari").value;
   num = document.getElementById("numero").value;
   //stampo il numero dell'utente
- document.getElementById("numeroUt").innerHTML = num;
-//con il click al secondo bottone creo un numero random
-var randomnum = document.getElementById("bottoneRandom");
-randomnum.addEventListener("click", function(){
-  var random = Math.floor(Math.random() * (MAX_NUM - MIN_NUM) + MIN_NUM);
-  //stampo il numero random
-  document.getElementById("rand").innerHTML = random;
-  //creo con una funzione il totale del numero random e del numero inserito dall'utente
-  function somma(num1, num2){
-  var addizione = num1 + num2;
-  return addizione;
+  document.getElementById("numeroUt").innerHTML = num;
+  if(num < MIN_NUM || num > MAX_NUM){
+    alert("Hai messo un numero troppo grande o troppo piccolo")
   }
-  var totale = somma(random, num);
- var message = document.getElementById("result");
- //creo le condizioni
-  if(totale % 2 == 0 && evenOdd == "pari"){
-  message.innerHTML = "Hai vinto!";
-  }
-  else if(totale % 2 == 1 && evenOdd == "dispari"){
+  //con il click al secondo bottone creo un numero random
+  var randomnum = document.getElementById("bottoneRandom");
+  randomnum.addEventListener("click", function(){
+    var random = Math.floor(Math.random() * (MAX_NUM - MIN_NUM) + MIN_NUM);
+    //stampo il numero random
+    document.getElementById("rand").innerHTML = random;
+    //creo con una funzione il totale del numero random e del numero inserito dall'utente
+    function somma(num1, num2){
+      var addizione = num1 + num2;
+      return addizione;
+    }
+    var totale = somma(random, num);
+    var message = document.getElementById("result");
+    //creo le condizioni
+    if(totale % 2 == 0 && evenOdd == "pari"){
+      message.innerHTML = "Hai vinto!";
+    }
+    else if(totale % 2 == 1 && evenOdd == "dispari"){
 
       message.innerHTML = "Hai vinto!";
     }
-  else{
-    message.innerHTML = "Mi dispiace, hai perso";
-  }
-})
+    else{
+      message.innerHTML = "Mi dispiace, hai perso";
+    }
+  })
 })
 
 
-  // document.getElementById("rand").innerHTML = randomnum();
-  // var somma = num + randomnum();
-  // if (somma == pari && even == "pari"){
-  //   alert("Complimenti!")
-  // }
-  // else if( somma == dispari && odd == "dispari"){
-  //   alert("Complimenti!")
-  // }
-  // else{
-  //   alert("Mi dispiace, hai perso")
-  // }
+// document.getElementById("rand").innerHTML = randomnum();
+// var somma = num + randomnum();
+// if (somma == pari && even == "pari"){
+//   alert("Complimenti!")
+// }
+// else if( somma == dispari && odd == "dispari"){
+//   alert("Complimenti!")
+// }
+// else{
+//   alert("Mi dispiace, hai perso")
+// }
